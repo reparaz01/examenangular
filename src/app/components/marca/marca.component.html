@@ -1,0 +1,47 @@
+<div>
+    <h2 class="mb-3 text-center">Cubos de la Marca: {{ nombremarca }} &nbsp;
+        <a [routerLink]="'/'" class="btn btn-success">
+          Volver
+        </a>
+      </h2>
+  
+    <div *ngIf="cubosCargados" class="container mt-5">
+      <div class="row">
+        <div *ngFor="let cubo of cubos" class="col-lg-4 mb-3">
+          <div class="card">
+            <img
+              [src]="cubo.imagen"
+              class="card-img-top"
+              [alt]="cubo.nombre"
+              style="max-width: 600px"
+            />
+            <div class="card-body text-center">
+              <br />
+              <h4 class="card-title">{{ cubo.nombre }}</h4>
+              <p class="card-text">Modelo: {{ cubo.modelo }}</p>
+              <p class="card-text">Marca: {{ cubo.marca }}</p>
+              <p class="card-text">Color: {{ cubo.color }}</p>
+              <p class="card-text">Precio: {{ cubo.precio }}€</p>
+              <p class="card-text">Valoracion: {{ cubo.valoracion }}/10</p>
+              <div class="container">
+                <div class="row">
+                  <div class="text-center">
+                    <br />
+                    <a [routerLink]="'/comentarios/' + cubo.idCubo" class="btn btn-primary">
+                      Ver Comentarios
+                    </a>
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="!cubosCargados">
+      Cargando...
+    </div>
+  </div>
+  

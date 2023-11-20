@@ -1,0 +1,48 @@
+<div class="centered-container">
+    <br /><br />
+    <h1 class="text-center">Autorización de Acceso</h1>
+    <form #insertForm="ngForm">
+      <div class="mb-3 text-center">
+        <label for="nombre" class="form-label">Email:</label>
+        <input
+          type="text"
+          class="form-control input-narrow mx-auto"
+          id="email"
+          name="email" 
+          #cajaEmail 
+        />
+      </div>
+  
+      <div class="mb-3 text-center">
+        <label for="nombre" class="form-label">Contraseña:</label>
+        <input
+          type="password"
+          class="form-control input-narrow mx-auto"
+          id="password"
+          name="password" 
+          #cajaPassword
+        />
+      </div>
+  
+      <div style="margin-top: 35px;"></div>
+  
+  
+      <div class="text-center">
+        <br />
+        <button (click)="login()" class="btn btn-primary">
+          Login
+        </button>
+        &nbsp;
+        <a [routerLink]="['/']" class="btn btn-secondary">
+          Volver
+        </a>
+      </div>
+    
+    </form>
+  
+    <div style="margin-top: 15px;"></div>
+    <!-- Mostrar mensaje de éxito o error -->
+    <h4 *ngIf="loginCorrecto" style="color: green; text-align: center;">Acceso Autorizado</h4>
+    <h4 *ngIf="loginIncorrecto" style="color: red; text-align: center;">Usuario o Contraseña incorrectos</h4>
+    
+  </div>

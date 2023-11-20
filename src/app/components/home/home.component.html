@@ -1,0 +1,29 @@
+<div *ngIf="cubosCargados" class="container py-4">
+    <h1 class="mb-3 text-center" >Bienvenido</h1>
+    <h2 class="mb-3 text-center">Estos son nuestros Cubos de Rubik!</h2>
+  
+    <table class="table table-secondary table-bordered">
+      <thead>
+        <tr>
+          <th class="align-middle text-center">Nombre</th>
+          <th class="align-middle text-center">Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cubo of cubos">
+          <td class="align-middle text-center">{{ cubo.nombre }}</td>
+          <td class="align-middle text-center">
+            <img [src]="cubo.imagen" [alt]="cubo.nombre" style="max-width: 100px" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!cubosCargados" class="container mt-5 d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="mb-3">Cargando...</h2>
+      </div>
+    </div>
+  </div>
+  

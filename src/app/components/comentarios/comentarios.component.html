@@ -1,0 +1,39 @@
+<div>
+    <div>
+      <h1 class="mb-3 text-center">
+        Comentarios del Cubo &nbsp;
+        <a [routerLink]="'/'" class="btn btn-success">
+            Volver
+          </a>
+      </h1>
+    </div>
+  
+    <div class="container py-4">
+      <div *ngIf="comentariosCargados" class="container py-4">
+        <table class="table table-secondary table-bordered">
+          <thead>
+            <tr>
+              <th class="align-middle text-center">Usuario</th>
+              <th class="align-middle text-center">Comentario</th>
+              <th class="align-middle text-center">Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let comentario of comentarios">
+              <td class="align-middle text-center">{{ comentario.idUsuario }}</td>
+              <td class="align-middle text-center">{{ comentario.comentario }}</td>
+              <td class="align-middle text-center">{{ comentario.fechaComentario }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="!comentariosCargados" class="container mt-5 d-flex justify-content-center align-items-center">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="mb-3">Cargando...</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
